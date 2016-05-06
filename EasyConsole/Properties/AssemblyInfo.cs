@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("EasyConsole")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("EasyConsole is a library to make it easier for developers to build a simple menu interface for a .NET console application")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("splttingatms")]
 [assembly: AssemblyProduct("EasyConsole")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
