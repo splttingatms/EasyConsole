@@ -4,8 +4,8 @@
     {
         protected Menu Menu { get; set; }
 
-        public MenuPage(string title, Program game, params Option[] options)
-            : base(title, game)
+        public MenuPage(string title, Program program, params Option[] options)
+            : base(title, program)
         {
             Menu = new Menu();
 
