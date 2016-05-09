@@ -11,6 +11,13 @@ namespace EasyConsole
             Console.ResetColor();
         }
 
+        public static void WriteLine(ConsoleColor color, string value)
+        {
+            Console.ForegroundColor = color;
+            Console.WriteLine(value);
+            Console.ResetColor();
+        }
+
         public static void WriteLine(string format, params object[] args)
         {
             Console.WriteLine(format, args);
