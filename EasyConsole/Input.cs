@@ -43,10 +43,22 @@ namespace EasyConsole
             return Console.ReadLine();
         }
 
-        public static T ReadEnum<T>(string prompt) where T : new()
+        public static TEnum ReadEnum<TEnum>(string prompt) where TEnum : struct, IConvertible, IComparable, IFormattable
         {
-            Output.DisplayPrompt(prompt);
-            return new T();
+            Type type = typeof(TEnum);
+
+            if (!type.IsEnum)
+                throw new ArgumentException("TEnum must be an enumerated type");
+
+            Output.WriteLine(prompt);
+            Menu menu = new Menu();
+
+            TEnum choice = default(TEnum);
+            foreach (var value in Enum.GetValues(type))
+                menu.Add(Enum.GetName(type, value), () => { choice = (TEnum)value; });
+            menu.Display();
+
+            return choice;
         }
     }
 }

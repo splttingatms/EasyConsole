@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DemoProgram.cs" />
+    <Compile Include="Pages\InputPage.cs" />
     <Compile Include="Pages\MainPage.cs" />
     <Compile Include="Pages\Page1A.cs" />
     <Compile Include="Pages\Page1Ai.cs" />
