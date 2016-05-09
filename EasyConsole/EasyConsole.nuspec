@@ -10,7 +10,10 @@
     <projectUrl>https://github.com/splttingatms/EasyConsole</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Initial release.</releaseNotes>
+    <releaseNotes>
+- Added ability to prompt user for an enumeration type.
+- Added an overload to Output.WriteLine method to avoid needing to escape curly braces in format parameter
+	</releaseNotes>
     <copyright>Copyright 2016</copyright>
     <tags>console menu program</tags>
   </metadata>
