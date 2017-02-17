@@ -5,13 +5,13 @@ using System.Linq;
 
 namespace EasyConsole
 {
-    public class Program
+    public abstract class Program
     {
-        private string Title { get; set; }
+        protected string Title { get; set; }
 
         public bool BreadcrumbHeader { get; private set; }
 
-        private Page CurrentPage
+        protected Page CurrentPage
         {
             get
             {
@@ -25,7 +25,7 @@ namespace EasyConsole
 
         public bool NavigationEnabled { get { return History.Count > 1; } }
 
-        public Program(string title, bool breadcrumbHeader)
+        protected Program(string title, bool breadcrumbHeader)
         {
             Title = title;
             Pages = new Dictionary<Type, Page>();
