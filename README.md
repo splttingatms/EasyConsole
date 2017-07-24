@@ -3,7 +3,7 @@ EasyConsole is a library to make it easier for developers to build a simple menu
 
 ![Program Demo](https://i.imgur.com/Hlc2QoI.gif)
 
-###Features
+### Features
 * Automatically numbered menus
 * Fluent creation of menus
 * Input/Output helpers
