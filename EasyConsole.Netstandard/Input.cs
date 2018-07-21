@@ -2,63 +2,75 @@
 
 namespace EasyConsole
 {
-    public static class Input
-    {
-        public static int ReadInt(string prompt, int min, int max)
-        {
-            Output.DisplayPrompt(prompt);
-            return ReadInt(min, max);
-        }
+	public static class Input
+	{
+		public static int ReadInt(string prompt, int min, int max)
+		{
+			Output.DisplayPrompt(prompt);
+			return ReadInt(min, max);
+		}
 
-        public static int ReadInt(int min, int max)
-        {
-            int value = ReadInt();
+		public static int ReadInt(int min, int max)
+		{
+			int value = ReadInt();
 
-            while (value < min || value > max)
-            {
-                Output.DisplayPrompt("Please enter an integer between {0} and {1} (inclusive)", min, max);
-                value = ReadInt();
-            }
+			while (value < min || value > max)
+			{
+				Output.DisplayPrompt("Please enter an integer between {0} and {1} (inclusive)", min, max);
+				value = ReadInt();
+			}
 
-            return value;
-        }
+			return value;
+		}
 
-        public static int ReadInt()
-        {
-            string input = Console.ReadLine();
-            int value;
+		public static int ReadInt()
+		{
+			string input = Console.ReadLine();
+			int value;
 
-            while (!int.TryParse(input, out value))
-            {
-                Output.DisplayPrompt("Please enter an integer");
-                input = Console.ReadLine();
-            }
+			while (!int.TryParse(input, out value))
+			{
+				Output.DisplayPrompt("Please enter an integer");
+				input = Console.ReadLine();
+			}
 
-            return value;
-        }
+			return value;
+		}
 
-        public static string ReadString(string prompt)
-        {
-            Output.DisplayPrompt(prompt);
-            return Console.ReadLine();
-        }
+		public static string ReadString(string prompt)
+		{
+			Output.DisplayPrompt(prompt);
+			return Console.ReadLine();
+		}
 
-        public static TEnum ReadEnum<TEnum>(string prompt) where TEnum : struct, IConvertible, IComparable, IFormattable
-        {
-            Type type = typeof(TEnum);
+		public static ConsoleKeyInfo ReadKey(string prompt)
+		{
+			Output.DisplayPrompt(prompt);
+			return Console.ReadKey();
+		}
 
-            if (!type.IsEnum)
-                throw new ArgumentException("TEnum must be an enumerated type");
+		public static Boolean ReadKeyYesOrNo(string prompt)
+		{
+			var key = ReadKey($"{prompt} (y/n)").KeyChar;
+			return key == 'y';
+		}
 
-            Output.WriteLine(prompt);
-            Menu menu = new Menu();
+		public static TEnum ReadEnum<TEnum>(string prompt) where TEnum : struct, IConvertible, IComparable, IFormattable
+		{
+			Type type = typeof(TEnum);
 
-            TEnum choice = default(TEnum);
-            foreach (var value in Enum.GetValues(type))
-                menu.Add(Enum.GetName(type, value), () => { choice = (TEnum)value; });
-            menu.Display();
+			if (!type.IsEnum)
+				throw new ArgumentException("TEnum must be an enumerated type");
 
-            return choice;
-        }
-    }
+			Output.WriteLine(prompt);
+			Menu menu = new Menu();
+
+			TEnum choice = default(TEnum);
+			foreach (var value in Enum.GetValues(type))
+				menu.Add(Enum.GetName(type, value), () => { choice = (TEnum)value; });
+			menu.Display();
+
+			return choice;
+		}
+	}
 }
