@@ -33,11 +33,16 @@ namespace EasyConsole
             BreadcrumbHeader = breadcrumbHeader;
         }
 
+        protected Program(bool breadcrumbHeader) : this(null, breadcrumbHeader)
+        {
+        }
+
         public virtual void Run()
         {
             try
             {
-                Console.Title = Title;
+                if (string.IsNullOrEmpty(Title) == false)
+                    Console.Title = Title;
 
                 CurrentPage.Display();
             }
