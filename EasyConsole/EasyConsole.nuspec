@@ -6,15 +6,14 @@
     <title>$title$</title>
     <authors>$author$</authors>
     <owners>$author$</owners>
-    <licenseUrl>https://github.com/splttingatms/EasyConsole/blob/master/LICENSE</licenseUrl>
-    <projectUrl>https://github.com/splttingatms/EasyConsole</projectUrl>
+    <licenseUrl>https://github.com/jfgreco/EasyConsole/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/jfgreco/EasyConsole</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
     <releaseNotes>
-- Added ability to prompt user for an enumeration type.
-- Added an overload to Output.WriteLine method to avoid needing to escape curly braces in format parameter
-	</releaseNotes>
-    <copyright>Copyright 2016</copyright>
+- Migrated to .Net Standard 2.0
+    </releaseNotes>
+    <copyright>Copyright 2020</copyright>
     <tags>console menu program</tags>
   </metadata>
 </package>
