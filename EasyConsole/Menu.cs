@@ -7,6 +7,7 @@ namespace EasyConsole
     public class Menu
     {
         private IList<Option> Options { get; set; }
+        public int SelectedIndex { get; private set; }
 
         public Menu()
         {
@@ -20,6 +21,7 @@ namespace EasyConsole
                 Console.WriteLine("{0}. {1}", i + 1, Options[i].Name);
             }
             int choice = Input.ReadInt("Choose an option:", min: 1, max: Options.Count);
+            this.SelectedIndex = choice;
 
             Options[choice - 1].Callback();
         }
