@@ -17,6 +17,8 @@ namespace EasyConsole
 
         public virtual void Display()
         {
+            Console.ForegroundColor = Settings.TitleColor;
+
             if (Program.History.Count > 1 && Program.BreadcrumbHeader)
             {
                 string breadcrumb = null;
@@ -24,12 +26,15 @@ namespace EasyConsole
                     breadcrumb += title + " > ";
                 breadcrumb = breadcrumb.Remove(breadcrumb.Length - 3);
                 Console.WriteLine(breadcrumb);
+                Console.WriteLine(new string('-', breadcrumb.Length)); //add line
             }
             else
             {
                 Console.WriteLine(Title);
+                Console.WriteLine(new string('-', Title.Length)); //add line
             }
-            Console.WriteLine("---");
+            Console.ResetColor();
+
         }
     }
 }
