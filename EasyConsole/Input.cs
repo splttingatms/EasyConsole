@@ -37,6 +37,20 @@ namespace EasyConsole
             return value;
         }
 
+        public static DateTime ReadDate()
+        {
+            string input = Console.ReadLine();
+            DateTime value;
+
+            while (!DateTime.TryParse(input, out value))
+            {
+                Output.DisplayPrompt("Please enter an datetime");
+                input = Console.ReadLine();
+            }
+
+            return value;
+        }
+
         public static string ReadString(string prompt)
         {
             Output.DisplayPrompt(prompt);
