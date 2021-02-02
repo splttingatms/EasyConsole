@@ -53,7 +53,7 @@ namespace EasyConsole
             Output.WriteLine(prompt);
             Menu menu = new Menu();
 
-            TEnum choice = default(TEnum);
+            TEnum choice = default;
             foreach (var value in Enum.GetValues(type))
                 menu.Add(Enum.GetName(type, value), () => { choice = (TEnum)value; });
             menu.Display();

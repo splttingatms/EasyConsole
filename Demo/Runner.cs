@@ -2,7 +2,7 @@
 {
     class Runner
     {
-        static void Main(string[] args)
+        static void Main()
         {
             new DemoProgram().Run();
         }

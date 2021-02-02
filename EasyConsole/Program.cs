@@ -83,8 +83,7 @@ namespace EasyConsole
             // leave the current page
 
             // select the new page
-            Page nextPage;
-            if (!Pages.TryGetValue(pageType, out nextPage))
+            if (!Pages.TryGetValue(pageType, out Page nextPage))
                 throw new KeyNotFoundException("The given page \"{0}\" was not present in the program".Format(pageType));
 
             // enter the new page
